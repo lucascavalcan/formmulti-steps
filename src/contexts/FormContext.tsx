@@ -28,14 +28,23 @@ const initialData: State = {
 }
 
 type FormProviderProps = {
-    children: ReactNode;
+    children: React.ReactNode;
 }
 
 //Context
 const FormContext = createContext<ContextType | undefined>(undefined);  //ele começa como undefined (por isso precisa desse |)
 
 //Reducer
-const formReducer = (state: State, action: Action) => {
+
+enum FormActions {
+    setCurretStep,
+    setName,
+    setLevel,
+    setEmail,
+    setGithub
+}
+
+export const formReducer = (state: State, action: Action) => {
     switch (action.type) {
         case "setCurretStep":
             return {...state, currentStep: action.payload};
@@ -48,7 +57,7 @@ const formReducer = (state: State, action: Action) => {
         case "setGithub":
             return {...state, github: action.payload};
         default:
-            return {state};
+            return state;
     }
 }
 
