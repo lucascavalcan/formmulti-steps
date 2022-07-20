@@ -36,14 +36,6 @@ const FormContext = createContext<ContextType | undefined>(undefined);  //ele co
 
 //Reducer
 
-enum FormActions {
-    setCurretStep,
-    setName,
-    setLevel,
-    setEmail,
-    setGithub
-}
-
 export const formReducer = (state: State, action: Action) => {
     switch (action.type) {
         case "setCurretStep":
